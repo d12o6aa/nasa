@@ -150,12 +150,17 @@ Bootstrap 5 Form Pack Template
                             <a rel="nofollow" target="_blank" href="https://www.pexels.com/video/digital-projection-of-the-earth-mass-in-blue-lights-3129957/">Earth video by Pexels</a></small>
                              -->
                             <!-- please set the date time in the init.js file -->
-                            
-                          <h1 class="text-white mt-2 mb-4 pb-2 " style="font-size: 30px;">
-                            How does your daily lifestyle impact forests?<br>
+                            <h1 class="text-warning mt-2 mb-4 pb-2 " style="font-size: 30px;" text-align-last="center" >
+                                <typing-effect data-lines='["How does your daily lifestyle impact forests?", "Start your Journey to discover your personal impact"]' data-continue-to="email-container" class="js-signup-typed-welcome js-octocaptcha-hide">
+                                    <span data-target="typing-effect.content" class="text-mono text-gray-light-mktg"></span>
+                                    <span data-target="typing-effect.cursor" class="typing-effect-cursor" hidden="">|</span>
+                                </typing-effect>
+                            </h1>    
+                            <!-- <h1 class="text-white mt-2 mb-4 pb-2 " style="font-size: 30px;">
+                                How does your daily lifestyle impact forests?<br>
 
-                            Start your Journey to discover your personal impact
-                            </h1>
+                                Start your Journey to discover your personal impact
+                            </h1> -->
 
                              <!-- <ul class="countdown d-flex flex-wrap align-items-center">
                                <li class="countdown-item d-flex flex-column justify-content-center align-items-center">
@@ -199,6 +204,47 @@ Bootstrap 5 Form Pack Template
         </main>
 
         <!-- JAVASCRIPT FILES -->
+         <script>
+            const typingEffect = (element, lines) => {
+                let lineIndex = 0;
+                let charIndex = 0;
+                let currentLine = lines[lineIndex];
+    
+                const typingInterval = setInterval(() => {
+                    if (charIndex < currentLine.length) {
+                        element.innerHTML += currentLine.charAt(charIndex);
+                        charIndex++;
+                    } else {
+                        if (lineIndex < lines.length - 1) {
+                            lineIndex++;
+                            charIndex = 0;
+                            currentLine = lines[lineIndex];
+                            element.innerHTML += '<br>';
+                        } else {
+                            clearInterval(typingInterval);
+                        }
+                    }
+                }, 100); 
+            };
+            document.addEventListener("DOMContentLoaded", () => {
+                const welcomeMessage = document.querySelector(".js-signup-typed-welcome span[data-target='typing-effect.content']");
+                const lines = ["How does your daily lifestyle impact forests?", "Start your Journey to discover your personal impact"];
+                typingEffect(welcomeMessage, lines);
+            });
+    
+            // تمكين الزر عند إدخال البريد الإلكتروني
+            document.getElementById('email').addEventListener('input', function() {
+                const emailInput = this.value;
+                const continueButton = document.querySelector('.signup-continue-button');
+                
+                // تحقق من أن الحقل ليس فارغًا
+                if (emailInput) {
+                    continueButton.disabled = false;
+                } else {
+                    continueButton.disabled = true;
+                }
+            });
+         </script>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/countdown.js"></script>
