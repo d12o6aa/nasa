@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face-api.js Example</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js/dist/face-api.min.js"></script>
+</head>
+<body>
+
+    <video id="video" width="640" height="480" autoplay></video>
+    
+    <script>
+        async function loadModels() {
+            await faceapi.nets.tinyFaceDetector.loadFromUri('/models');
+            await faceapi.nets.faceExpressionNet.loadFromUri('/models');
+            analyzeFace(); // Call analyzeFace here after models are loaded
+        }
+        
+        async function analyzeFace() {
+            const video = document.getElementById('video');
+            
+            // استخدم الموديل لتحليل تعبيرات الوجه
+            video.addEventListener('play', async () => {
+                const canvas = faceapi.createCanvasFromMedia(video);
+                document.body.append(canvas);
+                const displaySize = { width: video.width, height: video.height };
+                faceapi.matchDimensions(canvas, displaySize);
+                
+                setInterval(async () => {
+                    const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+                        .withFaceExpressions();
+
+                    const resizedDetections = faceapi.resizeResults(detections, displaySize);
+                    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+
+                    faceapi.draw.drawDetections(canvas, resizedDetections);
+                    faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
+
+                    if (detections.length > 0) {
+                        const expressions = detections[0].expressions;
+                        // تحليل مستوى الإجهاد بناءً على التعبيرات
+                        if (expressions.sadness > 0.5 || expressions.anger > 0.5) {
+                            console.log('مستوى الإجهاد عالي');
+                        } else {
+                            console.log('مستوى الإجهاد منخفض');
+                        }
+                    }
+                }, 100);
+            });
+        }
+
+        // الوصول إلى الكاميرا
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                var video = document.getElementById('video');
+                video.srcObject = stream;
+                loadModels(); // Load models after accessing the camera
+            })
+            .catch(function(err) {
+                console.log("حدث خطأ: " + err);
+            });
+    </script>
+</body>
+</html>
