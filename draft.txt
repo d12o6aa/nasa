@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -7,102 +7,63 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Welcome | Kool Form Pack</title>
+        <title>Kool Form Pack | Coming Soon Page</title>
 
-        <!-- CSS FILES -->                
         <link rel="preconnect" href="https://fonts.googleapis.com">
+        
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+        
         <link href="css/bootstrap.min.css" rel="stylesheet">
+
         <link href="css/bootstrap-icons.css" rel="stylesheet">
+
         <link href="css/tooplate-kool-form-pack.css" rel="stylesheet">
+        
 
-        <style>
-            /* نمط الفيديو الخلفي */
-            .video-wrap {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: -1;
-                overflow: hidden;
-            }
-
-            .video-wrap video {
-                min-width: 100%;
-                min-height: 100%;
-                width: auto;
-                height: auto;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                object-fit: cover;
-            }
-
-            /* نمط المحتوى */
-            .hero-section {
-                position: relative;
-                z-index: 2;
-                background-color: rgba(0, 0, 0, 0.5); /* خلفية شبه شفافة لتحسين وضوح النص */
-                padding: 100px 0;
-                text-align: center;
-            }
-
-            h1, a {
-                color: #fff;
-            }
-
-            .custom-btn {
-                background-color: transparent;
-                border: 2px solid #fff;
-                color: #fff;
-                padding: 10px 30px;
-                transition: all 0.3s ease-in-out;
-            }
-
-            .custom-btn:hover {
-                background-color: #fff;
-                color: #000;
-            }
-        </style>
     </head>
     
     <body>
-        <div class="video-wrap">
-            <video autoplay muted loop>
-                <source src="videos/video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
 
         <main>
+
+          
+
+
             <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
                 <div class="container">
                     <div class="row">
+
                         <div class="col-lg-6 col-12 mx-auto">
-                            <h1 class="text-white mt-2 mb-4 pb-2" style="font-size: 30px;">
-                                <typing-effect data-lines='["How does your daily lifestyle impact forests?", "Start your Journey to discover your personal impact"]' class="js-signup-typed-welcome">
+                            
+                            <h1 class="text-white mt-2 mb-4 pb-2 " style="font-size: 30px;" text-align-last="center" >
+                                <typing-effect data-lines='["How does your daily lifestyle impact forests?", "Start your Journey to discover your personal impact"]' data-continue-to="email-container" class="js-signup-typed-welcome js-octocaptcha-hide">
                                     <span data-target="typing-effect.content" class="text-mono text-gray-light-mktg"></span>
                                     <span data-target="typing-effect.cursor" class="typing-effect-cursor" hidden="">|</span>
                                 </typing-effect>
                             </h1>    
                             
                             <div>
-                                <a href="form.html" class="custom-btn custom-border-btn btn">
-                                    Let's Start
+                                <a href="#" class="custom-btn custom-border-btn btn" data-bs-toggle="modal" data-bs-target="#subscribeModal">Let's Start
                                     <i class="bi-arrow-right ms-2"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="video-wrap">
+                    <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                        <source src="videos/video.mp4" type="video/mp4">
+
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </section>
         </main>
 
-        <!-- JAVASCRIPT FILES -->
-        <script>
+         <script>
             const typingEffect = (element, lines) => {
                 let lineIndex = 0;
                 let charIndex = 0;
@@ -124,16 +85,27 @@
                     }
                 }, 100); 
             };
-
             document.addEventListener("DOMContentLoaded", () => {
                 const welcomeMessage = document.querySelector(".js-signup-typed-welcome span[data-target='typing-effect.content']");
                 const lines = ["How does your daily lifestyle impact forests?", "Start your Journey to discover your personal impact"];
                 typingEffect(welcomeMessage, lines);
             });
-        </script>
-        
-        <!-- Bootstrap and JavaScript libraries -->
+    
+            document.getElementById('email').addEventListener('input', function() {
+                const emailInput = this.value;
+                const continueButton = document.querySelector('.signup-continue-button');
+                
+                if (emailInput) {
+                    continueButton.disabled = false;
+                } else {
+                    continueButton.disabled = true;
+                }
+            });
+         </script>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/countdown.js"></script>
+        <script src="js/init.js"></script>
+
     </body>
-</html>
+</html> -->
