@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -9,7 +9,6 @@
 
         <title>Kool Form Pack | Coming Soon Page</title>
 
-        <!-- CSS FILES -->                
         <link rel="preconnect" href="https://fonts.googleapis.com">
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +37,6 @@
 
                         <div class="col-lg-6 col-12 mx-auto">
                             
-                            <!-- please set the date time in the init.js file -->
                             <h1 class="text-white mt-2 mb-4 pb-2 " style="font-size: 30px;" text-align-last="center" >
                                 <typing-effect data-lines='["How does your daily lifestyle impact forests?", "Start your Journey to discover your personal impact"]' data-continue-to="email-container" class="js-signup-typed-welcome js-octocaptcha-hide">
                                     <span data-target="typing-effect.content" class="text-mono text-gray-light-mktg"></span>
@@ -65,7 +63,6 @@
             </section>
         </main>
 
-        <!-- JAVASCRIPT FILES -->
          <script>
             const typingEffect = (element, lines) => {
                 let lineIndex = 0;
@@ -94,12 +91,10 @@
                 typingEffect(welcomeMessage, lines);
             });
     
-            // تمكين الزر عند إدخال البريد الإلكتروني
             document.getElementById('email').addEventListener('input', function() {
                 const emailInput = this.value;
                 const continueButton = document.querySelector('.signup-continue-button');
                 
-                // تحقق من أن الحقل ليس فارغًا
                 if (emailInput) {
                     continueButton.disabled = false;
                 } else {
@@ -113,5 +108,285 @@
         <script src="js/init.js"></script>
 
     </body>
-</html>
+</html> -->
 
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Kool Form Pack | Coming Soon Page</title>
+
+        <!-- CSS FILES -->                
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+        
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/tooplate-kool-form-pack.css" rel="stylesheet">
+
+        <style>
+            #question-section {
+                display: none;
+            }
+            #question-section .question {
+                display: none;
+            }
+            #question-section .question.active {
+                display: block;
+            }
+        </style>
+
+    </head>
+    
+    <body>
+
+        <main>
+            <!-- section of typing effect -->
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 mx-auto">
+                            <!-- typing effect-->
+                            <h1 class="text-white mt-2 mb-4 pb-2" style="font-size: 30px; text-align: center;">
+                                <span class="js-signup-typed-welcome">
+                                    <span data-target="typing-effect.content" class="text-mono text-gray-light-mktg"></span>
+                                    <span data-target="typing-effect.cursor" class="typing-effect-cursor" hidden="">|</span>
+                                </span>
+                            </h1>
+
+                            <!-- start buttun-->
+                            <div>
+                                <a href="#" class="custom-btn custom-border-btn btn" onclick="startForm()">Let's Start
+                                    <i class="bi-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- add background video-->
+                <div class="video-wrap">
+                    <video autoplay loop muted class="custom-video" poster="">
+                        <source src="videos/video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </section>
+
+            <!-- section of questions-->
+            <section id="question-section" class="container mt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12 mx-auto">
+                            <div class="video-wrap">
+                                <video autoplay loop muted class="custom-video" poster="">
+                                    <source src="videos/video.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <form id="survey-form">
+                                <!-- Question 1-->
+                                <div class="question active">
+                                    <h2>How do you usually get to school or places?</h2>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="transport" value="Walk">
+                                        <label class="form-check-label">Walk</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="transport" value="Ride a bike">
+                                        <label class="form-check-label">Ride a bike</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="transport" value="Take the bus">
+                                        <label class="form-check-label">Take the bus</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="transport" value="Car">
+                                        <label class="form-check-label">Car (How many times a week?)</label>
+                                    </div>
+                                </div>
+                                <!-- Question 2-->
+                                <div class="question">
+                                    <h2>How much time do you spend using electronic devices each day?</h2>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="Less than 1 hour">
+                                        <label class="form-check-label">Less than 1 hour</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="1-3 hours">
+                                        <label class="form-check-label">1-3 hours</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="More than 3 hours">
+                                        <label class="form-check-label">More than 3 hours</label>
+                                    </div>
+                                </div>
+                                <!-- Question 3-->
+                                <div class="question">
+                                    <h2>How often do you leave the lights on when you're not in the room?</h2>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="Less than 1 hour">
+                                        <label class="form-check-label">Always</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="1-3 hours">
+                                        <label class="form-check-label">Sometimes</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="More than 3 hours">
+                                        <label class="form-check-label">Never</label>
+                                    </div>
+                                </div>
+                                <!-- Question 4 -->
+                                <div class="question">
+                                    <h2>How often do you recycle plastic, paper, or glass at home?</h2>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="Less than 1 hour">
+                                        <label class="form-check-label">Always</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="1-3 hours">
+                                        <label class="form-check-label">Sometimes</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="More than 3 hours">
+                                        <label class="form-check-label">Never</label>
+                                    </div>
+                                </div>
+                                <!-- Question 5 -->
+                                <div class="question">
+                                    <h2>How many times do you eat meat in a week?</h2>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="Less than 1 hour">
+                                        <label class="form-check-label">Every day</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="1-3 hours">
+                                        <label class="form-check-label">A few times a week</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="More than 3 hours">
+                                        <label class="form-check-label">Rarely or never</label>
+                                    </div>
+                                </div>
+                                <!-- Question 6-->
+                                <div class="question">
+                                    <h2>How often do you take long showers (more than 10 minutes)?</h2>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="Less than 1 hour">
+                                        <label class="form-check-label">Every day</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="1-3 hours">
+                                        <label class="form-check-label">Sometimes</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="More than 3 hours">
+                                        <label class="form-check-label">Rarely or never</label>
+                                    </div>
+                                </div>
+                                <!-- Question 7-->
+                                <div class="question">
+                                    <h2>Do you bring a reusable water bottle, or do you usually buy bottled water?</h2>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="Less than 1 hour">
+                                        <label class="form-check-label">bring a reusable water bottle</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="electronics" value="1-3 hours">
+                                        <label class="form-check-label">buy bottled water</label>
+                                    </div>
+                                    
+                                </div>
+
+                                
+                                <br>
+                                <button type="button" class="btn btn-success mt-3" onclick="nextQuestion()">Next</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- JAVASCRIPT FILES -->
+        <script>
+            const typingEffect = (element, lines) => {
+                let lineIndex = 0;
+                let charIndex = 0;
+                let currentLine = lines[lineIndex];
+
+                const typingInterval = setInterval(() => {
+                    if (charIndex < currentLine.length) {
+                        element.innerHTML += currentLine.charAt(charIndex);
+                        charIndex++;
+                    } else {
+                        if (lineIndex < lines.length - 1) {
+                            lineIndex++;
+                            charIndex = 0;
+                            currentLine = lines[lineIndex];
+                            element.innerHTML += '<br>';
+                        } else {
+                            clearInterval(typingInterval);
+                        }
+                    }
+                }, 100); 
+            };
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const welcomeMessage = document.querySelector(".js-signup-typed-welcome span[data-target='typing-effect.content']");
+                const lines = ["How does your daily lifestyle impact forests?", "Start your Journey to discover your personal impact"];
+                typingEffect(welcomeMessage, lines);
+            });
+
+            function startForm() {
+                document.getElementById('section_1').style.display = 'none'; 
+                document.getElementById('question-section').style.display = 'block'; 
+            }
+
+            let currentQuestionIndex = 0;
+            const questions = document.querySelectorAll('.question');
+
+            function showQuestion(index) {
+                questions.forEach((question, i) => {
+                    question.classList.remove('active');
+                    if (i === index) {
+                        question.classList.add('active');
+                    }
+                });
+            }
+
+            function nextQuestion() {
+                const currentQuestion = questions[currentQuestionIndex];
+                const selectedOption = currentQuestion.querySelector('input[type="radio"]:checked');
+                if (!selectedOption) {
+                    alert("Please select the answer.");
+                    return;
+                }
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    showQuestion(currentQuestionIndex);
+                } else {
+                    alert("You have completed the survey. thansk you for participating");
+                }
+            }
+        </script>
+
+        <!-- Bootstrap and JavaScript libraries -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/countdown.js"></script>
+        <script src="js/init.js"></script>
+    </body>
+</html>
