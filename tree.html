@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en" class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Survey Form with Tree Growth</title>
+
+    <!-- CSS FILES -->                
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/tooplate-kool-form-pack.css">
+
+    <style>
+        .video-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-wrap video {
+            min-width: 100%;
+            min-height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        #question-section {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 50px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        #question-section .question {
+            display: none;
+        }
+
+        #question-section .question.active {
+            display: block;
+        }
+
+        /* Center and size the canvas */
+        #treeCanvas {
+            width: 100%;
+            height: 400px;
+            display: block;
+            margin-bottom: 20px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-wrap">
+        <video autoplay muted loop>
+            <source src="videos/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <main>
+        <div class="container">
+
+            <!-- Canvas for the 3D tree -->
+            <canvas id="treeCanvas"></canvas>
+
+            <!-- Survey Form -->
+            <section id="question-section" class="container text-center">
+                <form id="survey-form">
+                    <!-- Question 1 -->
+                    <div class="question active">
+                        <h2>How do you usually get to school or places?</h2>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="transport" value="Walk" onclick="growTree(), brightColor()">
+                            <label class="form-check-label">Walk</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="transport" value="Ride a bike" onclick="growTree(), brightColor()">
+                            <label class="form-check-label">Ride a bike</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="transport" value="Take the bus" onclick="normalTree(), defaultColor()" >
+                            <label class="form-check-label">Take the bus</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="transport" value="Car" onclick="shrinkTree(), darkColor()">
+                            <label class="form-check-label">Car (How many times a week?)</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 2-->
+                    <div class="question">
+                        <h2>How much time do you spend using electronic devices each day?</h2>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="Less than 1 hour" onclick="growTree(), brightColor()">
+                            <label class="form-check-label">Less than 1 hour</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="1-3 hours" onclick="normalTree(), defaultColor()">
+                            <label class="form-check-label">1-3 hours</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="More than 3 hours" onclick="shrinkTree(), darkColor()">
+                            <label class="form-check-label">More than 3 hours</label>
+                        </div>
+                    </div>
+                    <!-- Question 3-->
+                    <div class="question">
+                        <h2>How often do you leave the lights on when you're not in the room?</h2>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="Always" onclick="shrinkTree(), darkColor()">
+                            <label class="form-check-label">Always</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="Sometimes" onclick="normalTree(), defaultColor()">
+                            <label class="form-check-label">Sometimes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="Never" onclick="growTree(), brightColor()">
+                            <label class="form-check-label">Never</label>
+                        </div>
+                    </div>
+                    <!-- Question 4 -->
+                    <div class="question">
+                        <h2>How often do you recycle plastic, paper, or glass at home?</h2>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="Always" onclick="growTree(), brightColor()">
+                            <label class="form-check-label">Always</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="Sometimes" onclick="normalTree(), defaultColor()">
+                            <label class="form-check-label">Sometimes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="Never" onclick="shrinkTree(), darkColor()">
+                            <label class="form-check-label">Never</label>
+                        </div>
+                    </div>
+                    <!-- Question 5 -->
+                    <div class="question">
+                        <h2>How many times do you eat meat in a week?</h2>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="Every day" onclick="shrinkTree(), darkColor()">
+                            <label class="form-check-label">Every day</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="A few times a week" onclick="normalTree(), defaultColor()">
+                            <label class="form-check-label">A few times a week</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="Rarely or never" onclick="growTree(), brightColor()">
+                            <label class="form-check-label">Rarely or never</label>
+                        </div>
+                    </div>
+                    <!-- Question 6-->
+                    <div class="question">
+                        <h2>How often do you take long showers (more than 10 minutes)?</h2>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="Every day" onclick="shrinkTree(), darkColor()">
+                            <label class="form-check-label">Every day</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="Sometimes" onclick="normalTree(), defaultColor()">
+                            <label class="form-check-label">Sometimes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="Rarely or never" onclick="growTree(), brightColor()">
+                            <label class="form-check-label">Rarely or never</label>
+                        </div>
+                    </div>
+                    <!-- Question 7-->
+                    <div class="question">
+                        <h2>Do you bring a reusable water bottle, or do you usually buy bottled water?</h2>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="bring a reusable water bottle" onclick="growTree(), brightColor()">
+                            <label class="form-check-label">bring a reusable water bottle</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="electronics" value="buy bottled water" onclick="shrinkTree(), darkColor()">
+                            <label class="form-check-label">buy bottled water</label>
+                        </div>
+                        
+                    </div>
+
+                    <br>
+                    <button type="button" class="btn btn-success mt-3" onclick="nextQuestion()">Next</button>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Include Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- JAVASCRIPT FILES -->
+    <script>
+        // Initialize Three.js scene
+        let scene = new THREE.Scene();
+        let camera = new THREE.PerspectiveCamera(75, window.innerWidth / 400, 0.1, 1000);
+        let renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('treeCanvas') });
+
+        renderer.setSize(window.innerWidth, 400);
+        document.body.appendChild(renderer.domElement);
+
+        renderer.setClearColor(0x000000, 0);
+
+        // Create a simple tree structure
+        let trunkGeometry = new THREE.CylinderGeometry(0.5, 0.5, 5, 32);
+        let trunkMaterial = new THREE.MeshBasicMaterial({ color: 0x8B4513 });
+        let trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
+        scene.add(trunk);
+
+        let foliageGeometry = new THREE.SphereGeometry(3, 32, 32);
+        let foliageMaterial = new THREE.MeshBasicMaterial({ color: 0x228B22 });
+        let foliage = new THREE.Mesh(foliageGeometry, foliageMaterial);
+        foliage.position.y = 4;
+        scene.add(foliage);
+
+        camera.position.z = 10;
+
+        // Function to grow the tree (increase size)
+        function growTree() {
+            foliage.scale.set(foliage.scale.x * 1.2, foliage.scale.y * 1.2, foliage.scale.z * 1.2);
+        }
+
+        // Function to shrink the tree (decrease size)
+        function shrinkTree() {
+            foliage.scale.set(foliage.scale.x * 0.8, foliage.scale.y * 0.8, foliage.scale.z * 0.8);
+        }
+
+
+        function normalTree() {
+            foliage.scale.set(foliage.scale.x * 1.0, foliage.scale.y * 1.0, foliage.scale.z * 1.0);
+        }
+
+
+        function defaultColor() {
+            foliageMaterial.color.set(0x228B22);  // العودة إلى اللون الافتراضي
+        }
+
+        function darkColor() {
+            foliageMaterial.color.set(0x556B2F);  // تغيير لون الأوراق ليصبح داكنًا (تأثير سلبي)        
+        }
+        function brightColor() {
+            foliageMaterial.color.set(0x00FF00);  // جعل الأوراق أكثر إشراقًا
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Survey navigation
+        let currentQuestionIndex = 0;
+        const questions = document.querySelectorAll('.question');
+
+        function showQuestion(index) {
+            questions.forEach((question, i) => {
+                question.classList.remove('active');
+                if (i === index) {
+                    question.classList.add('active');
+                }
+            });
+        }
+
+        function nextQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            const selectedOption = currentQuestion.querySelector('input[type="radio"]:checked');
+            if (!selectedOption) {
+                alert("Please select an answer.");
+                return;
+            }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                showQuestion(currentQuestionIndex);
+            } else {
+                alert("Survey complete!");
+            }
+        }
+    </script>
+</body>
+</html>
