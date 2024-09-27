@@ -14,9 +14,31 @@
       width: 100vw;
       height: 100vh;
       display: flex;
-      justify-content: center;
+      
       align-items: center;
+      background-image: url('images/6.jpeg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100%;
+      
     }
+    .container {
+      display: flex;
+      width: 100%;
+      margin: auto;
+      text-align: center;
+    }
+    .camera-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-section {
+      flex: 1;
+      background-color: transparent; 
+    }
+    
 
     canvas {
       position: absolute;
@@ -24,6 +46,19 @@
   </style>
 </head>
 <body>
-  <video id="video" width="720" height="560" autoplay muted></video>
+  <div class="container">
+    <div class="camera-section">
+      <video id="video" width="720" height="560" autoplay muted></video>
+    </div>
+    <div class="video-section">
+      <video id="myVideo" width="720" height="500" controls></video>
+    </div>
+  </div>
+  <script>
+    const myVideo = document.getElementById('myVideo');
+    myVideo.src = "videos/video3.mp4";  
+  </script>
 </body>
 </html>
+
+
