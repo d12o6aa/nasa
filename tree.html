@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحليل البصمة الكربونية - تجربة تفاعلية</title>
+    <title>Carbon Footprint Analysis - Interactive Experience</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,14 +44,14 @@
 <body>
     <!-- Header Section -->
     <div class="header">
-        <h1>تحليل البصمة الكربونية الخاصة بك</h1>
-        <p>اكتشف كيف تؤثر عاداتك على البيئة وتعلم كيفية تحسينها!</p>
+        <h1>Analyze your carbon footprint</h1>
+        <p>Discover how your habits affect the environment and learn how to improve it!</p>
     </div>
 
     <!-- 3D Visualization Section -->
     <div class="container" style="display: none;">
         <div class="section">
-            <h2>الغابة الافتراضية الخاصة بك</h2>
+            <h2>Your own virtual forest</h2>
             <div id="forestCanvas" class="canvas-container"></div>
         </div>
     </div>
@@ -59,15 +59,15 @@
     <!-- Carbon Footprint Analysis Section -->
     <div class="container">
         <div class="section">
-            <h2>تحليل الإجابات</h2>
+            <h2>Analyze answers</h2>
             <div class="row">
                 <div class="col-md-6">
                     <canvas id="carbonFootprintChart"></canvas>
                 </div>
                 <div class="col-md-6">
-                    <p>لقد أثر استهلاكك للطاقة والنفايات بطريقة كبيرة على البيئة. حاول تقليل بصمتك من خلال الحلول المقترحة في الأسفل.</p>
-                    <button class="btn btn-success">قلل استخدام الطاقة</button>
-                    <button class="btn btn-warning">أعد تدوير النفايات</button>
+                    <p>Your energy consumption and waste have a significant impact on the environment. Try to reduce your footprint with the solutions suggested below.</p>
+                    <button class="btn btn-success">Reduce energy use</button>
+                    <button class="btn btn-warning">Recycle waste</button>
                 </div>
             </div>
         </div>
@@ -115,7 +115,7 @@
         var carbonFootprintChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['النفايات', 'الطاقة', 'الماء', 'الوقود'],
+                labels: ['Waste', 'Energy', 'Water', 'Fuel'],
                 datasets: [{
                     data: [20, 40, 30, 10],
                     backgroundColor: ['red', 'blue', 'green', 'yellow']
