@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Environmental Challenges</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Help Save the Planet</h1>
+        <p>Complete the challenges below to reduce your carbon footprint.</p>
+    </header>
+
+    <div class="challenges">
+        <div class="challenge" id="light-challenge">
+            <img src="images/light-bulb.png" alt="Light Bulb">
+            <h2>Turn off the lights</h2>
+            <button onclick="completeChallenge('light-challenge', 'Good job! You saved energy!')">Accept Challenge</button>
+        </div>
+
+        <div class="challenge" id="bike-challenge">
+            <img src="images/bike.png" alt="Bike">
+            <h2>Use a bike once a week</h2>
+            <button onclick="completeChallenge('bike-challenge', 'Awesome! You reduced CO2 emissions!')">Accept Challenge</button>
+        </div>
+
+        <div class="challenge" id="recycle-challenge">
+            <img src="images/recycle.png" alt="Recycle">
+            <h2>Recycle paper</h2>
+            <button onclick="completeChallenge('recycle-challenge', 'Great! You helped save trees!')">Accept Challenge</button>
+        </div>
+    </div>
+
+    <div id="progress-message"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

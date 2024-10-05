@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" lang="zxx">
+<head>
+  <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Welcome | Kool Form Pack</title>
+
+        <!-- CSS FILES -->                
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="css/tooplate-kool-form-pack.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #8FBC8F;
+    }
+    .navbar {
+      background-color: transparent;
+    }
+    .navbar-brand, .navbar-nav .nav-link {
+      color: #fff !important;
+    }
+    .container {
+      margin-top: 20px;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .container2{
+      margin-top: 20px;
+      position: relative;
+      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .container3{
+      display: flex;
+      width: 100%;
+      margin: auto;
+      text-align: center;
+    }
+    .camera-feed {
+      margin-top: 20px;
+      display: block;
+    }
+    .biometric-data {
+      flex: 1;
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #f0f9f7;
+      border-radius: 15px;
+    }
+    footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+      margin-top: auto;
+    }
+  </style>
+
+  <!-- Face API and Custom JS -->
+  <script defer src="face-api.min.js"></script>
+  <script defer src="script.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container container2">
+      <div class="row justify-content-between">
+
+          <div class="col-lg-12 col-12 d-flex">
+              <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="index.html">
+                  <i class="bi-box"></i>
+
+                  <span>
+                      Kool Form Pack
+                  </span>
+              </a>
+
+              <ul class="social-icon d-flex justify-content-center align-items-center mx-auto">
+                  <span class="text-white me-4 d-none d-lg-block">Stay connected</span>
+
+                  <li class="social-icon-item">
+                      <a href="#" class="social-icon-link bi-instagram"></a>
+                  </li>
+
+                  <li class="social-icon-item">
+                      <a href="#" class="social-icon-link bi-twitter"></a>
+                  </li>
+
+                  <li class="social-icon-item">
+                      <a href="#" class="social-icon-link bi-whatsapp"></a>
+                  </li>
+              </ul>
+
+              <div>
+                  <a href="#" class="custom-btn custom-border-btn btn" data-bs-toggle="modal" data-bs-target="#subscribeModal">Notify me
+                      <i class="bi-arrow-right ms-2"></i>
+                  </a>
+              </div>
+
+              <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
+
+          </div>
+
+      </div>
+  </div>
+      
+      <!-- <a class="navbar-brand" href="#">Biometric Data</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#camera">Camera Feed</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#biometric">Biometric Data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+        </ul>
+      </div> 
+    
+  </nav> -->
+  
+
+  <!-- Main Content -->
+  <div class="container text-center">
+
+    <header class="site-header">
+    
+</header>
+<main>
+    <h2 class="mb-4">Measure Biometric Data</h2>
+    <p>Place use the camera to measure the impact of environmental disasters on your health.</p>
+
+    
+    <!-- Embedded Video -->
+    <div class="embed-responsive embed-responsive-16by9 video-frame mb-4" >
+      <iframe class="embed-responsive-item" src="videos/Untitled (2).mp4" height="400" width="100%" allowfullscreen></iframe>
+    </div>
+    <!-- Camera Feed -->
+     <div class="container3">
+        <div id="camera" class="camera-feed" >
+          <video id="video" width="100%" height="200" autoplay muted></video>
+        </div>
+
+        <!-- Biometric Data -->
+        <div id="biometricData" class="biometric-data d-none">
+          <h4>Your Biometric Data:</h4>
+          <p><strong>Heart Rate:</strong> <span id="heartRate">--</span> bpm</p>
+          <p><strong>Stress Level:</strong> <span id="stressLevel">--</span></p>
+
+          <!-- Canvas for Chart.js -->
+          <!-- <canvas id="biometricChart"></canvas> -->
+        </div>
+     </div>
+    
+
+    <!-- Biometric Data Button -->
+    <button class="btn btn-primary mt-4" ><a href="index2.html" style="color: whitesmoke">Continue</a></button>
+  
+</main>
+    
+  <!-- Footer -->
+  <!-- <footer>
+    <p>© 2024 Biometric Data Tracker. All Rights Reserved.</p>
+  </footer> -->
+
+  <script>
+    const myVideo = document.getElementById('myVideo');
+    myVideo.src = "videos/video3.mp4";
+  </script>
+
+</body>
+</html>
+

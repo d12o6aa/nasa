@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Smooth Navigation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e8f5e9; /* Calming green */
+        }
+
+        .navbar {
+            background-color: #2c6e49; /* Dark green */
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ff7043 !important; /* Alerting orange */
+        }
+
+        .nav-link {
+            margin-left: 20px;
+        }
+
+        .jumbotron {
+            background-color: #e8f5e9; /* Light green background */
+            padding: 100px 25px;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: #2c6e49;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ff7043;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Nature's Journey</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#challenges">Challenges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#impact">Your Impact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#solutions">Solutions</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron" id="home">
+        <h1 class="display-4">How Does Your Daily Life Affect the Forests?</h1>
+        <p class="lead">Begin your journey to discover your personal impact.</p>
+        <a class="btn btn-primary btn-lg" href="#challenges" role="button">Start Now</a>
+    </div>
+
+    <!-- Challenges Section -->
+    <section id="challenges" class="container my-5">
+        <h2>Challenges</h2>
+        <p>Small actions, like turning off the lights or biking, can make a big difference!</p>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="container my-5">
+        <h2>Your Impact</h2>
+        <p>Measure your environmental impact and learn how to reduce it.</p>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="container my-5">
+        <h2>Solutions</h2>
+        <p>Get practical solutions for a sustainable lifestyle.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Nature's Journey | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

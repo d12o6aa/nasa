@@ -1,249 +1,130 @@
-<!doctype html>
-<html lang="en" class="no-js" lang="zxx">
+<!DOCTYPE html>
+<html lang="ar">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Survey Form with Forest Growth</title>
-
-    <!-- CSS FILES -->                
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/tooplate-kool-form-pack.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحليل البصمة الكربونية - تجربة تفاعلية</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/tooplate-kool-form-pack.css" rel="stylesheet">
     <style>
-        .video-wrap {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
+        body {
+            background-color: #e8f4f8;
         }
-
-        .video-wrap video {
-            min-width: 100%;
-            min-height: 100%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-        }
-
-        #question-section {
-            position: relative;
-            z-index: 2;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 50px;
-            border-radius: 10px;
-            margin-top: 50px;
-            color: #fff;
-        }
-
-        #question-section .question {
-            display: none;
-        }
-
-        #question-section .question.active {
-            display: block;
-        }
-
-        .container {
-            display: flex;
-            width: 100%;
-            margin: auto;
+        .header {
             text-align: center;
+            margin: 30px 0;
         }
-
-        /* الغابة 3D */
-        .forest-section {
-            flex: 1;
-            background-color: transparent; /* شفافية خلفية الغابة */
+        .section {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        #forestCanvas {
-            width: 100%;
-            height: 100%;
-            display: block;
-            background-color: transparent; /* جعل الخلفية شفافة */
+        .section h2 {
+            color: #006400;
         }
-
-        /* قسم النموذج */
-        .form-section {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.7);
+        .canvas-container {
+            height: 400px;
+            background-color: #ffffff;
         }
-
-        select, button {
-            width: 100%;
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 16px;
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2e8b57;
+            color: white;
+            margin-top: 20px;
         }
     </style>
 </head>
-
 <body>
-    <div class="video-wrap">
-        <video autoplay muted loop>
-            <source src="videos/video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>تحليل البصمة الكربونية الخاصة بك</h1>
+        <p>اكتشف كيف تؤثر عاداتك على البيئة وتعلم كيفية تحسينها!</p>
     </div>
 
-    <main>
-        <div class="container">
-            
-            <!-- قسم النموذج -->
-            <div class="form-section">
-                <section id="question-section">
-                    <form id="survey-form">
-                        <!-- الأسئلة -->
-                        <div class="question active">
-                            <h2>How do you usually get to school or places?</h2>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="transport" value="Walk" onclick="addTrees(2), brightColor()">
-                                <label class="form-check-label">Walk</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="transport" value="Ride a bike" onclick="addTrees(1), brightColor()">
-                                <label class="form-check-label">Ride a bike</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="transport" value="Take the bus" onclick="removeTrees(1), defaultColor()">
-                                <label class="form-check-label">Take the bus</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="transport" value="Car" onclick="removeTrees(2), darkColor()">
-                                <label class="form-check-label">Car</label>
-                            </div>
-                        </div>
+    <!-- 3D Visualization Section -->
+    <div class="container" style="display: none;">
+        <div class="section">
+            <h2>الغابة الافتراضية الخاصة بك</h2>
+            <div id="forestCanvas" class="canvas-container"></div>
+        </div>
+    </div>
 
-                        <button type="button" class="btn btn-success mt-3" onclick="nextQuestion()">Next</button>
-                    </form>
-                </section>
-            </div>
-
-            <!-- الغابة ثلاثية الأبعاد -->
-            <div class="forest-section">
-                <canvas id="forestCanvas"></canvas>
+    <!-- Carbon Footprint Analysis Section -->
+    <div class="container">
+        <div class="section">
+            <h2>تحليل الإجابات</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <canvas id="carbonFootprintChart"></canvas>
+                </div>
+                <div class="col-md-6">
+                    <p>لقد أثر استهلاكك للطاقة والنفايات بطريقة كبيرة على البيئة. حاول تقليل بصمتك من خلال الحلول المقترحة في الأسفل.</p>
+                    <button class="btn btn-success">قلل استخدام الطاقة</button>
+                    <button class="btn btn-warning">أعد تدوير النفايات</button>
+                </div>
             </div>
         </div>
-    </main>
+        <div>
+            <a href="index11.html" class="custom-btn custom-border-btn btn">
+                Let's Start
+                <i class="bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
 
-    <!-- Include Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Footer Section -->
+    <!-- <div class="footer">
+        <p>موقع تفاعلي لتعزيز الوعي البيئي للأطفال والكبار</p>
+    </div> -->
 
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="Chart.min.js"></script>
+    <script src="three.min.js"></script>
     <script>
-        // إعداد Three.js مع خلفية شفافة
-        let scene = new THREE.Scene();
-        let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        let renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('forestCanvas'), alpha: true });
+        // 3D Forest Scene
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / 400, 0.1, 1000);
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, 400);
+        document.getElementById('forestCanvas').appendChild(renderer.domElement);
 
-        renderer.setSize(window.innerWidth / 2, window.innerHeight); // نصف الشاشة فقط
-        renderer.setClearColor(0x000000, 0);  // خلفية شفافة
+        var geometry = new THREE.BoxGeometry();
+        var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+        var cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
 
-        let trees = [];  // مصفوفة لتخزين الأشجار
-        let treeCount = 0;  // عدد الأشجار
-
-        // دالة لإنشاء شجرة جديدة
-        function createTree(x, z) {
-            let trunkGeometry = new THREE.CylinderGeometry(0.1, 0.1, 2, 8);  // جذع الشجرة
-            let trunkMaterial = new THREE.MeshBasicMaterial({ color: 0x8B4513 });
-            let trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
-            trunk.position.set(x, 1, z);  // موضع الجذع
-            
-            let foliageGeometry = new THREE.SphereGeometry(0.75, 16, 16);  // أوراق الشجرة
-            let foliageMaterial = new THREE.MeshBasicMaterial({ color: 0x228B22 });
-            let foliage = new THREE.Mesh(foliageGeometry, foliageMaterial);
-            foliage.position.set(x, 2, z);  // موضع الأوراق
-            
-            scene.add(trunk);
-            scene.add(foliage);
-            trees.push({ trunk, foliage });
-        }
-
-        // دالة لإضافة عدد من الأشجار
-        function addTrees(count) {
-            for (let i = 0; i < count; i++) {
-                let x = Math.random() * 10 - 5;  // توليد موقع عشوائي
-                let z = Math.random() * 10 - 5;  // توليد موقع عشوائي
-                createTree(x, z);
-                treeCount++;
-            }
-        }
-
-        // دالة لإزالة عدد من الأشجار
-        function removeTrees(count) {
-            for (let i = 0; i < count && trees.length > 0; i++) {
-                let tree = trees.pop();
-                scene.remove(tree.trunk);
-                scene.remove(tree.foliage);
-                treeCount--;
-            }
-        }
-
-        camera.position.z = 10;
+        camera.position.z = 5;
 
         function animate() {
             requestAnimationFrame(animate);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
             renderer.render(scene, camera);
         }
         animate();
 
-        // تغيير ألوان الأوراق بناءً على الإجابات
-        function defaultColor() {
-            trees.forEach(tree => {
-                tree.foliage.material.color.set(0x228B22);
-            });
-        }
-
-        function darkColor() {
-            trees.forEach(tree => {
-                tree.foliage.material.color.set(0x556B2F);
-            });
-        }
-
-        function brightColor() {
-            trees.forEach(tree => {
-                tree.foliage.material.color.set(0x00FF00);
-            });
-        }
-
-        // التنقل بين الأسئلة
-        let currentQuestionIndex = 0;
-        const questions = document.querySelectorAll('.question');
-
-        function showQuestion(index) {
-            questions.forEach((question, i) => {
-                question.classList.remove('active');
-                if (i === index) {
-                    question.classList.add('active');
-                }
-            });
-        }
-
-        function nextQuestion() {
-            const currentQuestion = questions[currentQuestionIndex];
-            const selectedOption = currentQuestion.querySelector('input[type="radio"]:checked');
-            if (!selectedOption) {
-                alert("Please select an answer.");
-                return;
+        // Carbon Footprint Analysis Chart
+        var ctx = document.getElementById('carbonFootprintChart').getContext('2d');
+        var carbonFootprintChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['النفايات', 'الطاقة', 'الماء', 'الوقود'],
+                datasets: [{
+                    data: [20, 40, 30, 10],
+                    backgroundColor: ['red', 'blue', 'green', 'yellow']
+                }]
+            },
+            options: {
+                responsive: true
             }
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                showQuestion(currentQuestionIndex);
-            } else {
-                alert("Survey complete!");
-            }
-        }
+        });
     </script>
 </body>
 </html>

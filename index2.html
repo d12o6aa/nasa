@@ -1,216 +1,107 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The impact of climate change on mental health</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
 
-        <meta name="description" content="">
-        <meta name="author" content="">
+    <!-- Navigation Bar -->
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">صحة النفس والمناخ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">الصفحة الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">حول</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resources">الموارد</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
 
-        <title>Kool Form Pack | Coming Soon Page</title>
+    <!-- Hero Section -->
+    <section class="bg-primary text-white text-center p-5">
+        <div class="container">
+            <h1>The impact of climate change on mental healthة</h1>
+            <p>How does climate change affect our mental and psychological health? Find out now and take advantage of the resources available.</p>
+            <a href="#sections" class="btn btn-light mt-3">Explore more</a>
+        </div>
+    </section>
 
-        <!-- CSS FILES -->                
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
-        
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
-
-        <link href="css/tooplate-kool-form-pack.css" rel="stylesheet">
-
-    </head>
-    
-    <body>
-
-        <main>
-            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
-                <div class="video-wrap">
-                    <video autoplay="" loop="" muted="" class="custom-video" poster="">
-                        <source src="videos/video.mp4" type="video/mp4">
-
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-6 col-12 mx-auto">
-                              
-                            <form class="custom-form" role="form" method="post">
-                                <input type="hidden" data-csrf="true" name="authenticity_token" value="TOKEN_VALUE_HERE">
-                                <input type="hidden" name="return_to" id="return_to" autocomplete="off" class="form-control">
-                                <input type="hidden" name="invitation_token" id="invitation_token" autocomplete="off" class="form-control">
-                                <input type="hidden" name="repo_invitation_token" id="repo_invitation_token" autocomplete="off" class="form-control">
-                            
-                                <h2 class="hero-title text-center mb-4 pb-2">Create an account</h2>
-
-                                <div class="row">
-                                    
-
-                                    <div id="email-container" class="js-continue-step-container signup-continue-step-container js-octocaptcha-hide mt-4 px-sm-0 px-4" data-step-state="active">
-                                        <div class="mb-1">
-                                          <label for="email" class="text-mono signup-text-prompt">Enter your email<sup aria-hidden="true">*</sup></label>
-                                        </div>
-                                        <div class="d-flex flex-items-center flex-column flex-sm-row">
-                                          <div class="d-flex flex-items-center width-full">
-                                            <div class="step" id="step-3">
-                                                <label for="plasticUsage">هل تستخدم المنتجات البلاستيكية غير المستدامة؟</label>
-                                                <select id="plasticUsage" name="plasticUsage" required>
-                                                    <option value="yes">نعم</option>
-                                                    <option value="no">لا</option>
-                                                    <option value="sometimes">أحيانًا</option>
-                                                </select>
-                                                <span id="plastic-error" class="message"></span>
-                                                <button type="button" id="next-2">التالي</button>
-                                            </div>
-                                          </div>
-                                          <button type="button" class="js-continue-button signup-continue-button form-control px-3 width-full width-sm-auto mt-4 mt-sm-0" disabled="">
-                                            Continue
-                                          </button>
-                                        </div>
-                                      </div>
-                                    
-                                    <!-- Username Input -->
-                                    <div id="username-container" class="js-continue-step-container signup-continue-step-container px-sm-0 px-4" hidden="">
-                                        <div class="mt-4 mb-1">
-                                        <label for="login" class="text-mono signup-text-prompt">Enter a username<sup aria-hidden="true">*</sup></label>
-                                        </div>
-                                        <div class="d-flex flex-items-center flex-column flex-sm-row">
-                                        <div class="d-flex flex-items-center width-full">
-
-                                            <div class="step" id="step-3">
-                                                <label for="plasticUsage">هل تستخدم المنتجات البلاستيكية غير المستدامة؟</label>
-                                                <select id="plasticUsage" name="plasticUsage" required>
-                                                    <option value="yes">نعم</option>
-                                                    <option value="no">لا</option>
-                                                    <option value="sometimes">أحيانًا</option>
-                                                </select>
-                                                <span id="plastic-error" class="message"></span>
-                                                <button type="submit">احسب بصمتك الكربونية</button>
-                                            </div>
-                                        </div>
-                                        <button type="button" class="js-continue-button signup-continue-button form-control px-3 width-full width-sm-auto mt-4 mt-sm-0">Continue</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </form>
-
-                            
+    <!-- Main Content Section -->
+    <section id="sections" class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Natural Disasters Section -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Natural disasters</h5>
+                            <p class="card-text">Floods and wildfires lead to psychological disorders such as anxiety, depression and post-traumatic stress disorder (PTSD) due to the massive loss of resources and homes.</p>
                         </div>
                     </div>
                 </div>
+                <!-- Heat Section -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">High temperatures</h5>
+                            <p class="card-text">Rising temperatures increase sleep problems, increase suicide rates, and exacerbate mental illnesses such as anxiety and depression.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                
-            </section>
-        </main>
+            <div class="row">
+                <!-- Air Pollution Section -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Air pollution</h5>
+                            <p class="card-text">Air pollution negatively affects the nervous system and increases the risk of anxiety and depression, especially in children and adolescents.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Disease Spread Section -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Spread of diseases</h5>
+                            <p class="card-text">Climate change leads to the spread of infectious diseases, which increases psychological and physical stress, and exacerbates psychological problems.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- JAVASCRIPT FILES -->
-         <script>
-             // محاكاة مؤثر الكتابة
-            const typingEffect = (element, lines) => {
-                let lineIndex = 0;
-                let charIndex = 0;
-                let currentLine = lines[lineIndex];
+    <!-- Resources Section -->
+    <section id="resources" class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="mb-4">Resources</h2>
+            <p>Use these resources to learn more and get psychological support.</p>
+            <a href="https://www.who.int/mental_health" class="btn btn-primary">World Health Organization</a>
+            <a href="https://www.cdc.gov/mentalhealth" class="btn btn-secondary">Center for Disease Control</a>
+        </div>
+    </section>
 
-                const typingInterval = setInterval(() => {
-                    if (charIndex < currentLine.length) {
-                        element.innerHTML += currentLine.charAt(charIndex);
-                        charIndex++;
-                    } else {
-                        if (lineIndex < lines.length - 1) {
-                            lineIndex++;
-                            charIndex = 0;
-                            currentLine = lines[lineIndex];
-                            element.innerHTML += '<br>';
-                        } else {
-                            clearInterval(typingInterval);
-                        }
-                    }
-                }, 100); // تعديل سرعة الكتابة
-            };
+    <!-- Footer -->
+    <!-- <footer class="bg-dark text-white text-center p-3">
+        <p>© 2024 موقع صحة النفس والمناخ. جميع الحقوق محفوظة.</p>
+    </footer> -->
 
-            document.addEventListener("DOMContentLoaded", () => {
-                const welcomeMessage = document.querySelector(".js-signup-typed-welcome span[data-target='typing-effect.content']");
-                const lines = ["Welcome to GitHub!", "Let’s begin the adventure"];
-                typingEffect(welcomeMessage, lines);
-            });
-
-            // تمكين الزر عند إدخال البريد الإلكتروني
-            document.getElementById('email').addEventListener('input', function() {
-                const emailInput = this.value;
-                const continueButton = document.querySelector('.signup-continue-button');
-                
-                // تحقق من أن الحقل ليس فارغًا
-                if (emailInput) {
-                    continueButton.disabled = false;
-                } else {
-                    continueButton.disabled = true;
-                }
-            });
-
-            const steps = document.querySelectorAll('.step');
-        let currentStep = 0;
-
-        // Move to the next step
-        document.getElementById('next-1').addEventListener('click', function() {
-            const carKilometers = document.getElementById('carKilometers').value;
-            if (carKilometers === '' || carKilometers <= 0) {
-                document.getElementById('car-error').textContent = "يرجى إدخال عدد صحيح من الكيلومترات.";
-            } else {
-                document.getElementById('car-error').textContent = "";
-                goToStep(1);
-            }
-        });
-
-        document.getElementById('next-2').addEventListener('click', function() {
-            const electricityUsage = document.getElementById('electricityUsage').value;
-            if (electricityUsage === '' || electricityUsage <= 0) {
-                document.getElementById('electricity-error').textContent = "يرجى إدخال كمية صالحة من الكهرباء.";
-            } else {
-                document.getElementById('electricity-error').textContent = "";
-                goToStep(2);
-            }
-        });
-
-        function goToStep(stepIndex) {
-            steps[currentStep].classList.remove('active');
-            steps[stepIndex].classList.add('active');
-            currentStep = stepIndex;
-
-            // Update progress bar
-            document.getElementById(`progress-${currentStep + 1}`).classList.add('active');
-        }
-
-        // معالج استلام البيانات وحساب بصمة الكربون
-        document.getElementById('carbonForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // منع إرسال النموذج بشكل افتراضي
-            
-            const carKilometers = document.getElementById('carKilometers').value;
-            const electricityUsage = document.getElementById('electricityUsage').value;
-            const plasticUsage = document.getElementById('plasticUsage').value;
-
-            // حساب أولي للبصمة الكربونية بناءً على المدخلات
-            let carbonFootprint = (carKilometers * 0.21) + (electricityUsage * 0.6); 
-            if (plasticUsage === 'yes') {
-                carbonFootprint += 50;
-            } else if (plasticUsage === 'sometimes') {
-                carbonFootprint += 25;
-            }
-
-            // عرض النتيجة
-            document.getElementById('result').innerHTML = `<h3>بصمتك الكربونية تساوي: ${carbonFootprint.toFixed(2)} كجم CO2 أسبوعيًا</h3>`;
-        });
-        </script>
-
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/countdown.js"></script>
-        <script src="js/init.js"></script>
-
-    </body>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

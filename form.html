@@ -35,6 +35,13 @@
             object-fit: cover;
         }
 
+        body{
+            background-color: #8FBC8F;
+            
+        }
+        main {
+            margin: 100px 100px 100px 400px;
+        }
         #question-section {
             position: relative;
             z-index: 2;
@@ -53,7 +60,7 @@
             display: block;
         }
 
-        .container {
+        .containers {
             display: flex;
             width: 100%;
             margin: auto;
@@ -63,6 +70,7 @@
         .tree-section {
             flex: 1;
             background-color: transparent; /* شفافية خلفية الشجرة */
+            
         }
         #treeCanvas {
             width: 100%;
@@ -76,6 +84,7 @@
             flex: 1;
             display: flex;
             align-items: center;
+            margin-bottom: 200px;
             justify-content: center;
         }
 
@@ -89,15 +98,57 @@
 </head>
 
 <body>
-    <div class="video-wrap">
+    <header class="site-header">
+        <div class="container">
+            <div class="row justify-content-between">
+
+                <div class="col-lg-12 col-12 d-flex">
+                    <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="index.html">
+                        <i class="bi-box"></i>
+
+                        <span>
+                            ECHO EARTH
+                        </span>
+                    </a>
+
+                    <ul class="social-icon d-flex justify-content-center align-items-center mx-auto">
+                        <span class="text-white me-4 d-none d-lg-block">Stay connected</span>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-instagram"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-twitter"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-whatsapp"></a>
+                        </li>
+                    </ul>
+
+                    <div>
+                        <a href="#" class="custom-btn custom-border-btn btn" data-bs-toggle="modal" >Notify me
+                            <i class="bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+
+                    <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
+
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!-- <div class="video-wrap">
         <video autoplay muted loop>
             <source src="videos/video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-    </div>
+    </div> -->
 
     <main>
-        <div class="container">
+        <div class="containers">
             
             <!-- قسم النموذج -->
             <div class="form-section">
@@ -231,22 +282,22 @@
     </main>
 
     <!-- Include Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="three.min.js"></script>
 
     <script>
         let scene = new THREE.Scene();
-        let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight/2, 0.1, 1000);
+        let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight/3, 0.1, 1000);
         let renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('treeCanvas'), alpha: true });
 
         renderer.setSize(window.innerWidth / 3, window.innerHeight); 
         renderer.setClearColor(0x000000, 0); 
 
-        let geometry = new THREE.CylinderGeometry(0.5, 0.5, 10, 32);  
+        let geometry = new THREE.CylinderGeometry(0.5, 0.5, 5, 32);  
         let material = new THREE.MeshBasicMaterial({ color: 0x8B4513 });
         let trunk = new THREE.Mesh(geometry, material);
         scene.add(trunk);
 
-        let foliageGeometry = new THREE.SphereGeometry(3, 32, 32);  
+        let foliageGeometry = new THREE.SphereGeometry(2, 32, 32);  
         let foliageMaterial = new THREE.MeshBasicMaterial({ color: 0x228B22 });
         let foliage = new THREE.Mesh(foliageGeometry, foliageMaterial);
         foliage.position.y =3;  
@@ -261,11 +312,11 @@
         animate();
 
         function growTree() {
-            foliage.scale.set(foliage.scale.x * 1.2, foliage.scale.y * 1.2, foliage.scale.z * 1.2);
+            foliage.scale.set(foliage.scale.x * 1.1, foliage.scale.y * 1.1, foliage.scale.z * 1.1);
         }
 
         function shrinkTree() {
-            foliage.scale.set(foliage.scale.x * 0.8, foliage.scale.y * 0.8, foliage.scale.z * 0.8);
+            foliage.scale.set(foliage.scale.x * 0.9, foliage.scale.y * 0.9, foliage.scale.z * 0.9);
         }
 
         function normalTree() {
@@ -307,7 +358,7 @@
             if (currentQuestionIndex < questions.length) {
                 showQuestion(currentQuestionIndex);
             } else {
-                window.location.href = "index.html";
+                window.location.href = "tree.html";
             }
         }
     </script>

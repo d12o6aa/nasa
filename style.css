@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    padding: 20px;
+    background-color: #88cc88;
+}
+
+h1 {
+    color: #fff;
+}
+
+.challenges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.challenge {
+    border: 2px solid #88cc88;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px;
+    width: 200px;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.challenge img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.challenge button {
+    background-color: #88cc88;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.challenge button:hover {
+    background-color: #66aa66;
+}
+
+.challenge.completed {
+    background-color: #e0ffe0;
+    border-color: #66aa66;
+}
+
+#progress-message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.video-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-wrap video {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+#question-section {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    border-radius: 10px;
+    margin-top: 50px;
+    color: #fff;
+}
+
+#question-section .question {
+    display: none;
+}
+
+#question-section .question.active {
+    display: block;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.tree-section {
+    flex: 1;
+    background-color: transparent; /* شفافية خلفية الشجرة */
+}
+#treeCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: transparent; /* جعل الخلفية شفافة */
+}
+
+/* قسم النموذج */
+.form-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+select, button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
